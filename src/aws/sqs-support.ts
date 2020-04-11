@@ -1,5 +1,5 @@
-import AWS, {SQS} from 'aws-sdk';
-import {SendMessageResult} from 'aws-sdk/clients/sqs';
+import AWS, {SQS} from "aws-sdk";
+import {SendMessageResult} from "aws-sdk/clients/sqs";
 
 export class SQSSupport {
   private logging = false;

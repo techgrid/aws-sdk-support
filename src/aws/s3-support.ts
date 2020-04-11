@@ -1,4 +1,4 @@
-import AWS, {S3} from 'aws-sdk';
+import AWS, {S3} from "aws-sdk";
 import {DeleteObjectOutput, GetObjectOutput} from "aws-sdk/clients/s3";
 
 export class S3Support {
