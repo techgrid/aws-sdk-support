@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es2017",
+        "lib": [ "dom", "es2015" ],
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "types":["jest", "node"],
+        "declaration": true
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+        "**/*.spec.*", "node_modules", "coverage"
+    ]
+}
