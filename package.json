@@ -1,6 +1,6 @@
 {
   "name": "aws-sdk-support",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wrapper for AWS SDK to simplify calls",
   "main": "dist/aws-sdk-support.js",
   "types": "dist/",
