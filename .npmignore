@@ -105,3 +105,10 @@ typings/
 
 .idea
 node_modules
+.travis.yml
+jest.config.js
+source-map-install.js
+tsconfig.json
+tslint.json
+webpack.config.js
+

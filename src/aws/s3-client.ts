@@ -1,15 +1,15 @@
 import AWS, {S3} from "aws-sdk";
 import {DeleteObjectOutput, GetObjectOutput} from "aws-sdk/clients/s3";
 
-export class S3Support {
+export class S3Client {
   private static defaultRegion: string;
 
   constructor(private readonly s3?: S3) {
     if (!this.s3) {
       if(AWS.config.region)
         this.s3 = new S3();
-      else if (S3Support.defaultRegion)
-        this.s3 = new S3({region: S3Support.defaultRegion})
+      else if (S3Client.defaultRegion)
+        this.s3 = new S3({region: S3Client.defaultRegion})
       else
         throw new Error("Default region is not available. Set default region by calling setRegion() method");
     }
@@ -26,6 +26,6 @@ export class S3Support {
   }
 
   public static setRegion(region: string):void {
-    S3Support.defaultRegion = region;
+    S3Client.defaultRegion = region;
   }
 }
