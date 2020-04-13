@@ -5,6 +5,15 @@ node_js:
 jobs:
   include:
     - stage: testing
+    - stage: npm release dryrun
+      if: branch =~ /^release.*$/
+      before_deploy:
+        - npm run build
+      deploy:
+        edge: true
+        provider: npm
+        cleanup: true
+        dry_run: true
     - stage: npm release
       if: branch = master
       before_deploy:
