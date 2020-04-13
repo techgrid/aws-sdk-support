@@ -9,7 +9,7 @@
         "noUnusedParameters": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist",
+        "outDir": "../dist",
         "types":["jest", "node"],
         "declaration": true
     },

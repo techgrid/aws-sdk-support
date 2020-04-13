@@ -1,9 +1,9 @@
 {
   "name": "aws-sdk-support",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Wrapper for AWS SDK to simplify calls",
-  "main": "dist/aws-sdk-support.js",
-  "types": "dist/",
+  "main": "dist/aws-sdk-support",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --coverage",
     "test:unit": "jest",

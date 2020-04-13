@@ -1,13 +1,13 @@
 import {GetQueueUrlResult, SendMessageResult} from "aws-sdk/clients/sqs";
 import {SQS} from "aws-sdk";
-import {SQSSupport} from "./sqs-support";
+import {SqsClient} from "./sqs-client";
 
 const AWSMock = require("aws-sdk-mock");
 const AWS = require("aws-sdk");
 AWSMock.setSDKInstance(AWS);
 
 describe("SQSSupport", () => {
-  let sqsSupport: SQSSupport;
+  let sqsSupport: SqsClient;
   let queue: string;
   let message: any;
 
@@ -17,26 +17,26 @@ describe("SQSSupport", () => {
   });
 
   it("should construct with sqs", () => {
-    sqsSupport = new SQSSupport(new SQS());
+    sqsSupport = new SqsClient(new SQS());
     expect(sqsSupport).toBeDefined();
   });
 
   it("should construct with default region", () => {
-    SQSSupport.setRegion("us-east-1");
-    sqsSupport = new SQSSupport();
+    SqsClient.setRegion("us-east-1");
+    sqsSupport = new SqsClient();
     expect(sqsSupport).toBeDefined();
   });
 
   it("should construct with AWS region", () => {
     AWS.config.region = "us-east-1";
-    sqsSupport = new SQSSupport();
+    sqsSupport = new SqsClient();
     expect(sqsSupport).toBeDefined();
   });
 
   it("should fail to construct with no region", () => {
     AWS.config.region = null;
-    SQSSupport.setRegion(null);
-    expect(() => new SQSSupport()).toThrow();
+    SqsClient.setRegion(null);
+    expect(() => new SqsClient()).toThrow();
   });
 
   it("should send message to queue with logging", async () => {
@@ -44,7 +44,7 @@ describe("SQSSupport", () => {
     const result = <SendMessageResult>{};
     AWSMock.mock("SQS", "getQueueUrl", Promise.resolve(queueUrl));
     AWSMock.mock("SQS", "sendMessage", Promise.resolve(result));
-    sqsSupport = new SQSSupport(new SQS());
+    sqsSupport = new SqsClient(new SQS());
     sqsSupport.enableLogging();
     const object = await sqsSupport.sendMessage(queue, message);
     expect(object).toEqual(result);
@@ -55,7 +55,7 @@ describe("SQSSupport", () => {
     const result = <SendMessageResult>{};
     AWSMock.mock("SQS", "getQueueUrl", Promise.resolve(queueUrl));
     AWSMock.mock("SQS", "sendMessage", Promise.resolve(result));
-    sqsSupport = new SQSSupport(new SQS());
+    sqsSupport = new SqsClient(new SQS());
     sqsSupport.disableLogging();
     const object = await sqsSupport.sendMessage(queue, message);
     expect(object).toEqual(result);
