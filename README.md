@@ -1,6 +1,11 @@
 # aws-sdk-support
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/26baad63fb7f403c889540f9673d19b0)](https://www.codacy.com/gh/techgrid/aws-sdk-support?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=techgrid/aws-sdk-support&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/techgrid/aws-sdk-support.svg?branch=master)](https://travis-ci.org/techgrid/aws-sdk-support)
+[![NPM](https://img.shields.io/npm/l/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+[![npm](https://img.shields.io/npm/dt/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+[![npm](https://img.shields.io/npm/v/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+![David](https://img.shields.io/david/techgrid/aws-sdk-support)
+![David](https://img.shields.io/david/dev/techgrid/aws-sdk-support)
 
 AWS SDK wrapper for node
 
