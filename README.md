@@ -3,3 +3,58 @@
 [![Build Status](https://travis-ci.org/techgrid/aws-sdk-support.svg?branch=master)](https://travis-ci.org/techgrid/aws-sdk-support)
 
 AWS SDK wrapper for node
+
+This library provides a simple wrapper on for aws-sdk
+Current version only supports following services
+* S3
+    * Get Object Content
+    * Delete Object
+* SQS
+    * Send Message
+
+### S3
+* Creating Client Instance
+```js
+const s3 = new S3Client();
+``` 
+or
+```js
+const awsS3 = new S3();
+const s3 = new S3Client(awsS3);
+``` 
+
+To set an AWS region (if not available via environment variables)
+```js
+S3Client.setRegion('us-east-1');
+```
+
+* Getting Object Content
+```js
+const content = await s3.getObjectContent('bucket', 'object/key.txt');
+```
+
+* Deleting Object
+```js
+const result = await s3.deleteObject('bucket', 'object/key.txt');
+```
+
+### SQS
+* Creating Client Instance
+```js
+const Sqs = new SqsClient();
+``` 
+or
+```js
+const awsSqs = new SQS();
+const sqs = new SqsClient(awsSqs);
+``` 
+
+To set an AWS region (if not available via environment variables)
+```js
+SqsClient.setRegion('us-east-1');
+```
+
+* Sending Message
+```js
+const content = await sqs.sendMessage('queue', {'message': 'this is message'});
+```
