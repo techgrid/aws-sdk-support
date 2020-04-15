@@ -6,7 +6,6 @@ jobs:
   include:
     - stage: testing
     - stage: npm release
-      if: branch = master
       before_deploy:
         - npm run build
       deploy:
