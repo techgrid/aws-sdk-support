@@ -1,11 +1,12 @@
 # aws-sdk-support
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/26baad63fb7f403c889540f9673d19b0)](https://www.codacy.com/gh/techgrid/aws-sdk-support?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=techgrid/aws-sdk-support&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/26baad63fb7f403c889540f9673d19b0)](https://www.codacy.com/gh/techgrid/aws-sdk-support?utm_source=github.com&utm_medium=referral&utm_content=techgrid/aws-sdk-support&utm_campaign=Badge_Coverage)
 [![Build Status](https://travis-ci.org/techgrid/aws-sdk-support.svg?branch=master)](https://travis-ci.org/techgrid/aws-sdk-support)
-[![NPM](https://img.shields.io/npm/l/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
-[![npm](https://img.shields.io/npm/dt/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
-[![npm](https://img.shields.io/npm/v/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
-![David](https://img.shields.io/david/techgrid/aws-sdk-support)
-![David](https://img.shields.io/david/dev/techgrid/aws-sdk-support)
+[![NPM](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/npm/l/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+[![NPM](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/npm/dt/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+[![NPM](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/npm/v/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
+[![David](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/david/techgrid/aws-sdk-support)](https://david-dm.org/techgrid/aws-sdk-support)
+[![David](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/david/dev/techgrid/aws-sdk-support)](https://david-dm.org/techgrid/aws-sdk-support?type=dev)
 
 AWS SDK wrapper for node
 
@@ -46,7 +47,7 @@ const result = await s3.deleteObject('bucket', 'object/key.txt');
 ### SQS
 * Creating Client Instance
 ```js
-const Sqs = new SqsClient();
+const sqs = new SqsClient();
 ``` 
 or
 ```js
