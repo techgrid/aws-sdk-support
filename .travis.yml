@@ -10,6 +10,9 @@ jobs:
       before_deploy:
         - npm run build
       deploy:
+        on:
+          all_branches: true
+          condition: ${TRAVIS_BRANCH} =~ ^release\/.*$
         edge: true
         provider: npm
         email: "$NPM_EMAIL"

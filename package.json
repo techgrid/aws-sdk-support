@@ -5,14 +5,15 @@
   "main": "dist/aws-sdk-support",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "test:unit": "jest",
     "build": "webpack -p",
     "clean": "rm -rf -v dist/*"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {},
+  "license": "MIT",
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
     "@types/chai": "^4.1.3",
@@ -21,6 +22,7 @@
     "serialize-javascript": ">=2.1.1",
     "aws-sdk": "^2.566.0",
     "aws-sdk-mock": "^4.3.0",
+    "codacy-coverage": "^3.4.0",
     "jest": "^24.7.1",
     "jest-cli": "^25.1.0",
     "ts-jest": "^24.0.2",
