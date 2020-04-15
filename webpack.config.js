@@ -1,4 +1,5 @@
 const path = require("path");
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   // http://codys.club/blog/2015/07/04/webpack-create-multiple-bundles-with-entry-points/#sec-3
@@ -6,6 +7,7 @@ module.exports = {
     "aws-sdk-support": "./src/index.ts"
   },
   target: "node",
+  externals: [nodeExternals()],
   mode: "production",
   module: {
     rules: [
