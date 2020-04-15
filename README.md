@@ -6,7 +6,7 @@
 [![NPM](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/npm/dt/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
 [![NPM](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/npm/v/aws-sdk-support)](https://www.npmjs.com/package/aws-sdk-support)
 [![David](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/david/techgrid/aws-sdk-support)](https://david-dm.org/techgrid/aws-sdk-support)
-[![David](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/david/dev/techgrid/aws-sdk-support)](https://david-dm.org/techgrid/aws-sdk-support)
+[![David](https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&url=https://img.shields.io/david/dev/techgrid/aws-sdk-support)](https://david-dm.org/techgrid/aws-sdk-support?type=dev)
 
 AWS SDK wrapper for node
 
