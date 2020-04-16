@@ -1,5 +1,6 @@
 import AWS, {S3} from "aws-sdk";
-import {DeleteObjectOutput, GetObjectOutput} from "aws-sdk/clients/s3";
+import {DeleteObjectOutput, GetObjectOutput, ListObjectsV2Output} from "aws-sdk/clients/s3";
+import {SdkSupport} from "./sdk-support";
 
 export class S3Client {
   private static defaultRegion: string;
@@ -8,16 +9,21 @@ export class S3Client {
     if (!this.s3) {
       if(AWS.config.region)
         this.s3 = new S3();
-      else if (S3Client.defaultRegion)
-        this.s3 = new S3({region: S3Client.defaultRegion})
+      else if (S3Client.defaultRegion || SdkSupport.defaultRegion)
+        this.s3 = new S3({region: S3Client.defaultRegion || SdkSupport.defaultRegion})
       else
         throw new Error("Default region is not available. Set default region by calling setRegion() method");
     }
   }
 
   public async getObjectContent(bucket: string, key: string): Promise<string> {
-    const getObjectResult:GetObjectOutput = await this.s3.getObject({Bucket: bucket, Key: key}).promise();
-    return getObjectResult.Body.toString();
+    const result:GetObjectOutput = await this.s3.getObject({Bucket: bucket, Key: key}).promise();
+    return result.Body.toString();
+  }
+
+  public async getObjectList(bucket: string, prefix: string): Promise<Array<string>> {
+    const result:ListObjectsV2Output = await this.s3.listObjectsV2({Bucket: bucket, Prefix: prefix}).promise();
+    return result.Contents.map(c => c.Key);
   }
 
   public async deleteObject(bucket: string, key: string): Promise<boolean> {

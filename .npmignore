@@ -112,3 +112,4 @@ tsconfig.json
 tslint.json
 webpack.config.js
 src/
+docs/

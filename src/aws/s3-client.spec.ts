@@ -1,6 +1,7 @@
 import {S3Client} from "./s3-client";
-import {DeleteObjectOutput, GetObjectOutput} from "aws-sdk/clients/s3";
+import {DeleteObjectOutput, GetObjectOutput, ListObjectsV2Output} from "aws-sdk/clients/s3";
 import {S3} from "aws-sdk";
+import {SdkSupport} from "./sdk-support";
 
 const AWSMock = require("aws-sdk-mock");
 const AWS = require("aws-sdk");
@@ -33,8 +34,17 @@ describe("S3Support", () => {
     expect(s3Support).toBeDefined();
   });
 
+  it("should construct with Sdk region", () => {
+    AWS.config.region = null;
+    SdkSupport.defaultRegion = "us-east-1";
+    S3Client.setRegion(null);
+    s3Support = new S3Client();
+    expect(s3Support).toBeDefined();
+  });
+
   it("should fail to construct with no region", () => {
     AWS.config.region = null;
+    SdkSupport.defaultRegion = null;
     S3Client.setRegion(null);
     expect(() => new S3Client()).toThrow();
   });
@@ -47,6 +57,16 @@ describe("S3Support", () => {
 
     const object = await s3Support.getObjectContent(bucket, key);
     expect(object).toEqual("2019010120190107");
+  });
+
+  it("should get list", async () => {
+    const o = {Contents: [{Key: "1"}, {Key: "2"}]} as ListObjectsV2Output;
+    AWSMock.mock("S3", "listObjectsV2",  Promise.resolve(o));
+    const s3 = new S3();
+    s3Support = new S3Client(s3);
+
+    const object = await s3Support.getObjectList(bucket, key);
+    expect(object).toContain("1");
   });
 
   it("should delete object", async () => {
